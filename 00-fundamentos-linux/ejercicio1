@@ -1,1 +1,17 @@
+molmo@devops:~/lemoncode$ mkdir foo
+molmo@devops:~/lemoncode$ cd foo
+molmo@devops:~/lemoncode/foo$ mkdir dummy
+molmo@devops:~/lemoncode/foo$ mkdir empty
+molmo@devops:~/lemoncode/foo$ cd dummy
+molmo@devops:~/lemoncode/foo/dummy$ ls
+molmo@devops:~/lemoncode/foo/dummy$ echo 'Me encanta la bash!!' > file1.txt
+molmo@devops:~/lemoncode/foo/dummy$ cat file1.txt 
+Me encanta la bash!!
+molmo@devops:~/lemoncode/foo/dummy$ echo -n > file2.txt
+molmo@devops:~/lemoncode/foo/dummy$ cat file2.txt 
+molmo@devops:~/lemoncode/foo/dummy$ tree
+.
+├── file1.txt
+└── file2.txt
 
+1 directory, 2 files

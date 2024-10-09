@@ -9,9 +9,12 @@ molmo@devops:~/lemoncode/foo/dummy$ cat file1.txt
 Me encanta la bash!!
 molmo@devops:~/lemoncode/foo/dummy$ echo -n > file2.txt
 molmo@devops:~/lemoncode/foo/dummy$ cat file2.txt 
-molmo@devops:~/lemoncode/foo/dummy$ tree
+molmo@devops:~/lemoncode$ tree
 .
-├── file1.txt
-└── file2.txt
+└── foo
+    ├── dummy
+    │   ├── file1.txt
+    │   └── file2.txt
+    └── empty
 
-1 directory, 2 files
+4 directories, 2 files

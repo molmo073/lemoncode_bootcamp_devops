@@ -1,6 +1,6 @@
 # Ejercicio2
 
 ```bash
-cat file1.txt > file2.txt
-mv file2.txt ../empty/
+cp foo/dummy/file1.txt foo/dummy/file2.txt
+mv foo/dummy/file2.txt foo/empty/
 ```

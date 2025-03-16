@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: postgres
+  labels:
+    app: postgres
 spec:
-  serviceName: postgres-service
+  serviceName: "postgres-service"
   replicas: 1
   selector:
     matchLabels:
@@ -15,24 +17,22 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:10.4
-          envFrom:
-            - configMapRef:
-                name: db-config
+          image: postgres:latest
           ports:
             - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: postgres-config
           volumeMounts:
-            - name: postgres-data
+            - name: postgres-storage
               mountPath: /var/lib/postgresql/data
   volumeClaimTemplates:
     - metadata:
-        name: postgres-data
+        name: postgres-storage
       spec:
-        accessModes: ["ReadWriteOnce"]
+        accessModes:
+          - ReadWriteOnce
         resources:
           requests:
             storage: 1Gi
         storageClassName: standard
-
-
-      

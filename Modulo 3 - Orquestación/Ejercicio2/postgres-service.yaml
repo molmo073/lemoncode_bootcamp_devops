@@ -1,11 +1,14 @@
+# 3. Service para PostgreSQL
 apiVersion: v1
 kind: Service
 metadata:
   name: postgres-service
-spec:
-  selector:
+  labels:
     app: postgres
+spec:
   ports:
     - port: 5432
       targetPort: 5432
-  type: ClusterIP
+  selector:
+    app: postgres
+  clusterIP: None

@@ -1,19 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  labels:
-    app: todo-app-deployment
   name: todo-app-deployment
-spec:
+spec:                 # Especificación del Deployment
   replicas: 1
   selector:
     matchLabels:
       app: todo-app
-  template:
+  template:           # Plantilla del Pod
     metadata:
       labels:
         app: todo-app
-    spec:
+    spec:             # Especificación del Pod
       containers:
       - name: todo-app
         image: lemoncodersbc/lc-todo-monolith:v5-2024

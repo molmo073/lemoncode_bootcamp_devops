@@ -52,8 +52,9 @@ kubectl apply -f todo-ingress.yaml
 ### 5. Ejecutar túnel de Ingress
 
 ```bash
-minikube image load todo-front:latest
-minikube image load todo-api:latest
+kubectl get svc
+kubectl get ingress
+minikube tunnel
 ```
 
 ### 6. Verificar servicios desde el navegador

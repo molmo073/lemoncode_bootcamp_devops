@@ -11,4 +11,4 @@ spec:
       targetPort: 5432
   selector:
     app: postgres
-  clusterIP: None
+  clusterIP: None   # servicio de tipo headless que enruta las solicitudes a la IP del pod.

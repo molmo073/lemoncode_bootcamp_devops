@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: todo-app
-        image: lemoncodersbc/lc-todo-monolith:v5-2024
+        image: todo-app:v1
         ports:
         - containerPort: 3000
         envFrom:

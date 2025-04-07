@@ -37,21 +37,23 @@ kubectl get pods
 
 ## 4. Aplicación en el navegador usando Minikube
 
+Exponer servicio en el cluster de minikube
+
 ```sh
 minikube service todo-app-service
 ```
 
-![minikube](./capturas/todo-app.png)
+![minikube](./capturas/todo-app.jpg)
 
-![Frontend](./capturas/navegador1.png)
+![Frontend](./capturas/navegador1.jpg)
 
 Inserto registro.
 
-![Frontend](./capturas/navegador2.png)
+![Frontend](./capturas/navegador2.jpg)
 
-Verificación desde el pod de postgres
+Verificación desde el pod de postgres. Hemos verificado que parando la exposición del servicio y volviendo a exponerlo realizando altas/bajas en Postgres que los datos persisten.
 
-![postgres](./capturas/postgres.png)
+![postgres](./capturas/postgres.jpg)
 
 ## 5. **Conclusión**
 

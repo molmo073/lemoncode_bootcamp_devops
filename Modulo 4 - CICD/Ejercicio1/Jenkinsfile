@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GRADLEW_DIR = '../jenkins-resources'
+        GRADLEW_DIR = 'Modulo 4 - CICD/jenkins-resources'
         GRADLE_CMD = './gradlew'
     }
 

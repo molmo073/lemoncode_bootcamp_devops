@@ -29,12 +29,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            dir("${env.GRADLEW_DIR}") {
-                junit 'build/test-results/test/*.xml'
-            }
-        }
-    }
 }

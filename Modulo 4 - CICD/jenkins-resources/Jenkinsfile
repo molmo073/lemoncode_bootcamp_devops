@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    environment {
+        GRADLE_WRAPPER = './gradlew'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/molmo073/lemoncode_bootcamp_devops.git', branch: 'main'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                dir('jenkins-resources') {
+                    sh "${env.GRADLE_WRAPPER} compileJava"
+                }
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                dir('jenkins-resources') {
+                    sh "${env.GRADLE_WRAPPER} test"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            dir('jenkins-resources') {
+                junit 'build/test-results/test/*.xml'
+            }
+        }
+    }
+}

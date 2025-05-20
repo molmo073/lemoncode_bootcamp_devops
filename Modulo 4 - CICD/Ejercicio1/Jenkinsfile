@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        GRADLE_WRAPPER = './gradlew'
+        GRADLEW_DIR = '../jenkins-resources'
+        GRADLE_CMD = './gradlew'
     }
 
     stages {
@@ -14,16 +15,16 @@ pipeline {
 
         stage('Compile') {
             steps {
-                dir('jenkins-resources') {
-                    sh "${env.GRADLE_WRAPPER} compileJava"
+                dir("${env.GRADLEW_DIR}") {
+                    sh "${env.GRADLE_CMD} compileJava"
                 }
             }
         }
 
         stage('Unit Tests') {
             steps {
-                dir('jenkins-resources') {
-                    sh "${env.GRADLE_WRAPPER} test"
+                dir("${env.GRADLEW_DIR}") {
+                    sh "${env.GRADLE_CMD} test"
                 }
             }
         }
@@ -31,7 +32,7 @@ pipeline {
 
     post {
         always {
-            dir('jenkins-resources') {
+            dir("${env.GRADLEW_DIR}") {
                 junit 'build/test-results/test/*.xml'
             }
         }

@@ -1,38 +1,27 @@
 pipeline {
-    agent any
-
-    environment {
-        GRADLE_WRAPPER = './gradlew'
+    agent {
+        docker {
+            image 'gradle:6.6.1-jre14-openj9'
+            args '-u root'
+        }
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/molmo073/lemoncode_bootcamp_devops.git', branch: 'main'
+                checkout scm
             }
         }
 
         stage('Compile') {
             steps {
-                dir('jenkins-resources') {
-                    sh "${env.GRADLE_WRAPPER} compileJava"
-                }
+                sh './gradlew build'
             }
         }
 
         stage('Unit Tests') {
             steps {
-                dir('jenkins-resources') {
-                    sh "${env.GRADLE_WRAPPER} test"
-                }
-            }
-        }
-    }
-
-    post {
-        always {
-            dir('jenkins-resources') {
-                junit 'build/test-results/test/*.xml'
+                sh './gradlew test'
             }
         }
     }

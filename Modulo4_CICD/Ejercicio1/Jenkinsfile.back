@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                chekout scm
+                git url: 'https://github.com/molmo073/lemoncode_bootcamp_devops.git', branch: 'main'
             }
         }
 

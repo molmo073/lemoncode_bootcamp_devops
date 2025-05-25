@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         GRADLEW_DIR = 'Modulo4_CICD/jenkins-resources/calculator'
-        GRADLE_CMD = './gradlew'
     }
 
     stages {
@@ -16,7 +15,7 @@ pipeline {
         stage('Compile') {
             steps {
                 dir("${env.GRADLEW_DIR}") {
-                    sh "${env.GRADLE_CMD} compileJava"
+                    sh './gradlew build' 
                 }
             }
         }
@@ -24,7 +23,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 dir("${env.GRADLEW_DIR}") {
-                    sh "${env.GRADLE_CMD} test"
+                    sh './gradlew test'
                 }
             }
         }

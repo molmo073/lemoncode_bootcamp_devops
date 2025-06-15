@@ -50,12 +50,12 @@ Desde el navegador:
 
 El código fuente está en la carpeta:
 
-> Modulo4_CICD/jenkins-resources
+> Modulo4_CICD/Jenkins/jenkins-resources
 
 Y se sube al repositorio GitHub:
 
 ```bash
-git add "Modulo4_CICD/jenkins-resources"
+git add "Modulo4_CICD/Jenkins/jenkins-resources"
 git commit -m "Añadir código fuente del ejercicio Jenkins a Modulo 4 - CICD"
 git push
 ```
@@ -65,7 +65,7 @@ git push
 Esto es necesario para que `./gradlew` funcione dentro del contenedor de Jenkins (Linux):
 
 ```bash
-git update-index --chmod=+x Modulo4_CICD/jenkins-resources/gradlew
+git update-index --chmod=+x Modulo4_CICD/Jenkins/jenkins-resources/calculator/gradlew
 ```
 
 Y hacer commit y push:
@@ -79,7 +79,7 @@ git push
 
 El `Jenkinsfile` se ubicó en:
 
-> Modulo4_CICD/Ejercicio1/Jenkinsfile
+> Modulo4_CICD/Jenkins/Ejercicio1/Jenkinsfile
 
 ### Paso 7. Creación de la tarea en Jenkins
 

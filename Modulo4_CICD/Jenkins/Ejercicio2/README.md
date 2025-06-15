@@ -43,7 +43,7 @@ Plugins instalados en Jenkins. Desde Manage Jenkins → Plugin Manager, se han i
 
 El `Jenkinsfile` se ubicó en:
 
-> Modulo4_CICD/Ejercicio2/Jenkinsfile
+> Modulo4_CICD/Jenkins/Ejercicio2/Jenkinsfile
 
 Este Jenkinsfile se ha subido al repositorio junto con el código fuente, en la rama main.
 

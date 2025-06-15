@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GRADLEW_DIR = 'Modulo4_CICD/jenkins-resources/calculator'
+        GRADLEW_DIR = 'Modulo4_CICD/Jenkins/jenkins-resources/calculator'
     }
 
     stages {

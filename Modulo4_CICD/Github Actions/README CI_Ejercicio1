@@ -69,6 +69,8 @@ on:
 * El job `build` ha finalizado correctamente, instalando dependencias y compilando el frontend sin errores.
 * El job `test` ha detectado un fallo en un test unitario, lo cual demuestra que el workflow está funcionando correctamente y reporta errores de ejecución de forma automática.
 
+![alt text](image-1.png)
+
 ```bash
 FAIL src/components/start-game.spec.tsx
   ✕ should display a list of topics
@@ -76,8 +78,6 @@ FAIL src/components/start-game.spec.tsx
 Expected length: 1
 Received length: 2
 ```
-
-![alt text](image.png)
 
 ---
 

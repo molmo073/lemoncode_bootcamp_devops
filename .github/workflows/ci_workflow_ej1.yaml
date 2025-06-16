@@ -2,7 +2,7 @@ name: CI - Ejercicio1
 
 on:
     pull_request:
-        paths: ["hangman-front/**"]
+        paths: ["Modulo4_CICD/Github Actions/.start-code/hangman-front/**"]
 
 jobs:
     build:

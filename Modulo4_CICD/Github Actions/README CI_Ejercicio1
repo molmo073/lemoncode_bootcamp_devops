@@ -10,13 +10,13 @@ Implementar un workflow de Integración Continua (CI) para el proyecto `hangman-
 
 El directorio del frontend se encuentra en:
 
-```
+```sh
 Modulo4_CICD/Github Actions/.start-code/hangman-front/
 ```
 
 El fichero del workflow se ha creado en la ruta estándar:
 
-```
+```sh
 .github/workflows/ci_workflow_ej1.yaml
 ```
 

@@ -1,0 +1,106 @@
+# Ejercicio 1 - CI con GitHub Actions
+
+## Objetivo
+
+Implementar un workflow de Integración Continua (CI) para el proyecto `hangman-front`, que compile el código y ejecute los tests automáticos cada vez que se cree una Pull Request con cambios en dicho directorio.
+
+---
+
+## Estructura del proyecto
+
+El directorio del frontend se encuentra en:
+
+```
+Modulo4_CICD/Github Actions/.start-code/hangman-front/
+```
+
+El fichero del workflow se ha creado en la ruta estándar:
+
+```
+.github/workflows/ci_workflow_ej1.yaml
+```
+
+---
+
+## Descripción del workflow CI
+
+El workflow se denomina `CI - Ejercicio1` y contiene dos jobs:
+
+* `build`: instala dependencias y compila el proyecto.
+* `test`: ejecuta los tests unitarios.
+
+Se ejecuta únicamente cuando:
+
+* Se crea una **pull request** contra `main`
+* Y la PR contiene cambios en el directorio `hangman-front`
+
+Para ello, el bloque de activación es:
+
+```yaml
+on:
+  pull_request:
+    paths:
+      - "Modulo4_CICD/Github Actions/.start-code/hangman-front/**"
+```
+
+---
+
+## Pasos realizados
+
+1. Se ha creado el fichero YAML del workflow en la ruta correcta (`.github/workflows/`).
+
+2. Se han definido dos jobs separados:
+
+   * El primero instala las dependencias con `npm ci` y compila el proyecto con `npm run build`.
+   * El segundo job ejecuta `npm test` y depende del anterior (`needs: build`).
+
+3. Se ha creado una nueva rama de trabajo llamada `test_ejercicio1`.
+
+4. Se ha modificado el archivo `README.md` dentro de `hangman-front` para provocar la ejecución del workflow.
+
+5. Se ha subido la rama al repositorio remoto y se ha creado una **Pull Request** contra `main`.
+
+6. Al crearse la PR, GitHub ha ejecutado automáticamente el workflow.
+
+---
+
+## Resultado
+
+* El job `build` ha finalizado correctamente, instalando dependencias y compilando el frontend sin errores.
+* El job `test` ha detectado un fallo en un test unitario, lo cual demuestra que el workflow está funcionando correctamente y reporta errores de ejecución de forma automática.
+
+```bash
+FAIL src/components/start-game.spec.tsx
+  ✕ should display a list of topics
+
+Expected length: 1
+Received length: 2
+```
+
+![alt text](image.png)
+
+---
+
+## Conclusión
+
+El ejercicio demuestra la implementación correcta de un flujo de Integración Continua usando GitHub Actions, con activación por Pull Request y verificación automática mediante build + test. El fallo detectado forma parte del comportamiento esperado de un sistema de CI funcional.
+
+---
+
+## Archivo del workflow (resumen)
+
+```yaml
+on:
+  pull_request:
+    paths:
+      - "Modulo4_CICD/Github Actions/.start-code/hangman-front/**"
+
+jobs:
+  build:
+    ...
+  test:
+    needs: build
+    ...
+```
+
+(Ver fichero completo en `.github/workflows/ci_workflow_ej1.yaml`)

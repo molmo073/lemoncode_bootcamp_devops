@@ -71,15 +71,13 @@ on:
 
 ![alt text](image-1.png)
 
-```bash
-FAIL src/components/start-game.spec.tsx
-  ✕ should display a list of topics
+![alt text](image-2.png)
 
-Expected length: 1
-Received length: 2
-```
+* Posteriormente, se ha corregido el test para ajustarse a los dos valores esperados, pasando a ejecutarse correctamente el workflow una vez corregido el error.
 
----
+![alt text](image-3.png)
+
+![alt text](image-4.png)
 
 ## Conclusión
 

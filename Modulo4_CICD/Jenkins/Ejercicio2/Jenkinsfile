@@ -6,6 +6,10 @@ pipeline {
         }
     }
 
+    environment {
+        GRADLEW_DIR = 'Modulo4_CICD/Jenkins/jenkins-resources/calculator'
+    }
+
     stages {
         stage('Checkout') {
             steps {

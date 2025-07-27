@@ -1,0 +1,38 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: some-mongo
+    volumes:
+      - mongo-volume:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d
+    networks:
+      - lemoncode-challenge
+
+  backend:
+    build: ./backend
+    container_name: topics-api
+    environment:
+      - DATABASE_URL=mongodb://some-mongo:27017
+    depends_on:
+      - mongo
+    networks:
+      - lemoncode-challenge
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-app
+    ports:
+      - "8080:3000"
+    environment:
+      - API_URI=http://topics-api:5000/api/topics
+    depends_on:
+      - backend
+    networks:
+      - lemoncode-challenge
+
+volumes:
+  mongo-volume:
+
+networks:
+  lemoncode-challenge:
+    name: lemoncode-challenge
